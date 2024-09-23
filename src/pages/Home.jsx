@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { AlertCircle, ChevronRight, Gift } from 'lucide-react';
-
+import React, { useState, useEffect } from "react";
+import { AlertCircle, ChevronRight, Gift } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "./components/components";
 
 const LoadingAnimation = () => {
   return (
     <div className="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
       <div className="text-center">
         <svg className="w-32 h-32 mx-auto mb-4" viewBox="0 0 100 100">
-          <circle 
-            cx="50" 
-            cy="50" 
-            r="45" 
-            fill="none" 
-            stroke="#3B82F6" 
-            strokeWidth="8" 
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#3B82F6"
+            strokeWidth="8"
             strokeDasharray="70 30"
             className="animate-spin origin-center"
           />
-          <path 
-            d="M50 15 L65 40 L50 65 L35 40 Z" 
+          <path
+            d="M50 15 L65 40 L50 65 L35 40 Z"
             fill="#8B5CF6"
             className="animate-pulse"
           />
@@ -28,15 +28,17 @@ const LoadingAnimation = () => {
             CryptoFuture
           </span>
         </h2>
-        <p className="text-gray-400 animate-pulse">Loading your digital future...</p>
+        <p className="text-gray-400 animate-pulse">
+          Loading your digital future...
+        </p>
       </div>
     </div>
   );
 };
 
 const CryptoAirdrop = () => {
-  const [email, setEmail] = useState('');
-  const [walletAddress, setWalletAddress] = useState('');
+  const [email, setEmail] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -51,6 +53,7 @@ const CryptoAirdrop = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // send post request
     setIsSubmitted(true);
   };
 
@@ -74,7 +77,7 @@ const CryptoAirdrop = () => {
             <h2 className="text-2xl font-semibold text-center mb-4">
               Claim Your <span className="text-blue-400">Future Tokens</span>
             </h2>
-            
+
             {isSubmitted ? (
               <Alert>
                 <AlertCircle className="h-4 w-4" />
@@ -86,7 +89,10 @@ const CryptoAirdrop = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-1"
+                  >
                     Email Address
                   </label>
                   <input
@@ -99,7 +105,10 @@ const CryptoAirdrop = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="wallet" className="block text-sm font-medium mb-1">
+                  <label
+                    htmlFor="wallet"
+                    className="block text-sm font-medium mb-1"
+                  >
                     Wallet Address
                   </label>
                   <input
